@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: sample-static-ruby
+build:
+  local: {}
+  artifacts:
+    - image: sample-static-ruby-frontend
+      context: frontend
+      buildpacks:
+        builder: paketobuildpacks/builder-jammy-base
+    - image: sample-static-ruby-api
+      context: api
+      buildpacks:
+        builder: paketobuildpacks/builder-jammy-base
+deploy: {}
